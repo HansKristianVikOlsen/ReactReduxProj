@@ -7,7 +7,7 @@ import CourseForm from "./CourseForm";
 import { newCourse } from "../../../tools/mockData";
 import { toast } from "react-toastify";
 
-function ManageCoursePage({
+export function ManageCoursePage({
   courses,
   authors,
   loadAuthors,
@@ -17,8 +17,11 @@ function ManageCoursePage({
   ...props
 }) {
   const [course, setCourse] = useState({ ...props.course });
+
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
+
+  //const [authorList, setAuthorList] = useState([]);
 
   useEffect(() => {
     if (courses.length === 0) {
@@ -75,6 +78,7 @@ function ManageCoursePage({
         setSaving(false);
         setErrors({ onSave: error.message }); //Error handeling. Look at form for how it displays
       });
+    debugger;
   }
 
   return (

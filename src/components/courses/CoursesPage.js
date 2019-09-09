@@ -10,6 +10,7 @@ import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 import { tsArrayType } from "@babel/types";
 import { totalmem } from "os";
+import { Link } from "react-router-dom";
 
 class CoursePage extends React.Component {
   /*
@@ -38,7 +39,8 @@ class CoursePage extends React.Component {
   }
   */
   state = {
-    redirectToAddCoursePage: false
+    redirectToAddCoursePage: false,
+    redirectToAddAuthorPage: false
   };
 
   componentDidMount() {
@@ -53,6 +55,12 @@ class CoursePage extends React.Component {
       });
     }
   }
+
+  /*
+  componentDidUpdate() {
+    console.log(this.props.authors.length + " aaabb");
+  }
+  */
   handleDeleteCourse = course => {
     toast.success("Course deleted");
     this.props.actions.deleteCourse(course).catch(error => {
@@ -77,6 +85,7 @@ class CoursePage extends React.Component {
     return (
       <>
         {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
+        {this.state.redirectToAddAuthorPage && <Redirect to="/addauthor" />}
         <h2>Courses</h2>
         {this.props.loading ? ( // if loading is true, render loading icon
           <Spinner />
@@ -88,6 +97,14 @@ class CoursePage extends React.Component {
               onClick={() => this.setState({ redirectToAddCoursePage: true })}
             >
               Add Course
+            </button>
+
+            <button
+              style={{ marginBottom: 20, marginLeft: 5 }}
+              className="btn btn-primary add-course"
+              onClick={() => this.setState({ redirectToAddAuthorPage: true })}
+            >
+              Add Big Boy Author
             </button>
             <CourseList
               onDeleteClick={this.handleDeleteCourse}

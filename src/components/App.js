@@ -6,6 +6,7 @@ import Header from "./common/Header";
 import PageNotFound from "./PageNotFound";
 import CoursePage from "./courses/CoursesPage";
 import ManageCoursePage from "./courses/ManageCoursePage";
+import AddAuthor from "./authors/createAuthor";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/courses" component={CoursePage} />
         <Route path="/course/:slug" component={ManageCoursePage} />
         <Route path="/course" component={ManageCoursePage} />
+        <Route path="/addauthor" component={AddAuthor} />
         <Route component={PageNotFound} />
       </Switch>
       <ToastContainer autoClose={3000} hideProgressBar />

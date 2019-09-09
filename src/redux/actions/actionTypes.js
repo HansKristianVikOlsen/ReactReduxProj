@@ -6,3 +6,7 @@ export const UPDATE_COURSE_SUCCESS = "UPDATE_COURSE_SUCCESS";
 export const BEGIN_API_CALL = "BEGIN_API_CALL";
 export const API_CALL_ERROR = "API_CALL_ERROR";
 export const DELETE_COURSE_OPTIMISTIC = "DELETE_COURSE_OPTIMISTIC"; // No success at the end since we don't want to decremente
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+export const CREATE_AUTHOR_SUCCESS = "CREATE_AUTHOR_SUCCESS";
+export const UPDATE_AUTHOR_SUCCESS = "UPDATE_AUTHOR_SUCCESS";
